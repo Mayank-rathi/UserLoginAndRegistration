@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="US-ASCII">
+    <title>Login Page</title>
+</head>
+<style>
+    div.ex {
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        -webkit-transform: translate3d(-50%, -50%, 0);
+        -moz-transform: translate3d(-50%, -50%, 0);
+        transform: translate3d(-50%, -50%, 0);
+    }
+</style>
+<body>
+<div class="ex">
+<form action="LoginServlet" method="post">
+    <br>
+    Username: <input type="text" name="user">
+    <br>
+    Password: <input type="Password" name="pwd">
+    <br>
+    <input type="submit" value="Login">
+</form>
+</div>
+</body>
+</html>

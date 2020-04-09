@@ -1,0 +1,36 @@
+package com.registration;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+@WebServlet("/RegistrationController")
+public class RegistrationController extends HttpServlet {
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        String name = request.getParameter("fullname");
+        String Addr = request.getParameter("address");
+        String age = request.getParameter("age");
+        String company = request.getParameter("company");
+/*
+        String password = request.getParameter("password");
+*/
+        String Year = request.getParameter("yop");
+        if (name.isEmpty() || Addr.isEmpty() || age.isEmpty() || company.isEmpty() /*|| password.isEmpty()*/ || Year.isEmpty()) {
+            RequestDispatcher rd = request.getRequestDispatcher("registration.jsp");
+            out.println("<font color=red>Please fill all the fields</font>");
+            rd.include(request, response);
+        } else {
+            RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+            rd.forward(request, response);
+        }
+    }
+}
